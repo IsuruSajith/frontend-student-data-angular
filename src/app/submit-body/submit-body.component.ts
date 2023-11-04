@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./submit-body.component.scss']
 })
 export class SubmitBodyComponent {
-  formData: any;
+  formData: any={};
   constructor() {}
 
   submitForm() {
