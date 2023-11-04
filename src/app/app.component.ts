@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'forntenfrontend-student-data-angular';
+  title = 'frontend-student-data-angular';
 }
