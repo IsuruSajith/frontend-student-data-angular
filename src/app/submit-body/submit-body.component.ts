@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-submit-body',
@@ -6,13 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./submit-body.component.scss']
 })
 export class SubmitBodyComponent {
-  formData: any={};
-  constructor() {}
+  formData: any = {};
+
+  constructor(private dataService: DataService) {}
 
   submitForm() {
-// Log the collected data to the console
     console.log('User data to send to the backend:', this.formData);
 
-    // TODO: Send the data to the backend using an HTTP request
+    // Send the data to the backend
+    this.dataService.sendDataToBackend(this.formData).subscribe(
+      response => {
+        console.log('Data sent successfully:', response);
+        // Handle the response from the backend
+      },
+      error => {
+        console.error('Error sending data:', error);
+        // Handle any errors that occur
+      }
+    );
   }
 }
